@@ -59,10 +59,10 @@ public class Questions {
 		logger.info("Days older method\n");
 		
 		if(p1.getDate().isBefore(p2.getDate())) {
-			System.out.println(p1.getName()+" is "+Days.daysBetween(p1.getDate(), p2.getDate()).getDays()+" days older");
+			System.out.println(p1.getName()+" is "+Days.daysBetween(p1.getDate(), p2.getDate()).getDays()+" days older than "+p2.getName());
 		}
 		else {
-			System.out.println(p2.getName()+" is "+Days.daysBetween(p2.getDate(), p1.getDate()).getDays()+" days older");	
+			System.out.println(p2.getName()+" is "+Days.daysBetween(p2.getDate(), p1.getDate()).getDays()+" days older than "+p1.getName());	
 		}
 		
 	}
