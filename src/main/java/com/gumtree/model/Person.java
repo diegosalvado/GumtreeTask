@@ -41,6 +41,10 @@ public class Person {
 		this.date = age;
 	}
 	
-	
+	public String toString() {
+		return this.name+" "+this.gender+" "+
+		this.date.getDayOfMonth()+"/"+this.date.getMonthOfYear()+"/"+this.date.getYearOfCentury();
+		
+	}
 	
 }

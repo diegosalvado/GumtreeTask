@@ -43,15 +43,15 @@ public class Reader
     	 List<Person> list = readFile(f);
     	 
     	} catch (NullPointerException e) {
-			logger.info("File path: Null pointer");
+			logger.error("File path: Null pointer");
 		
     	} catch (ParseException e) {
 			// TODO Auto-generated catch block
-    		logger.info("Error parsing data from file");
+    		logger.error("Error parsing data from file");
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			logger.info("Scanner: File not found");
+			logger.error("Scanner: File not found");
 		}
     }
 
@@ -68,7 +68,7 @@ public class Reader
     }
 
     
-    private static List<Person> readFile(File f) throws ParseException, FileNotFoundException {
+    public static List<Person> readFile(File f) throws ParseException, FileNotFoundException {
     	
 
   	  sc = new Scanner(f);

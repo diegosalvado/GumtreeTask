@@ -1,7 +1,14 @@
 package com.gumtree.app;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.util.List;
+
 import com.gumtree.config.ConfigFiles;
+import com.gumtree.model.Person;
+
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -33,10 +40,20 @@ public class AppTest
 
     /**
      * Rigourous Test :-)
+     * @throws ParseException 
+     * @throws FileNotFoundException 
      */
-    public void testApp()
+    public void testApp() throws FileNotFoundException, ParseException
     {
-    	 assertNotNull(Reader.getFile(ConfigFiles.FILE_ADDRESS));
-         
+    	  //true if file not null 
+        assertNotNull(Reader.getFile(ConfigFiles.FILE_ADDRESS));
+        
+        File f = Reader.getFile(ConfigFiles.FILE_ADDRESS);
+        
+        List<Person> list = Reader.readFile(f);
+        assertNotNull(list);
+        
+        for(Person p:list)
+ 			  System.out.println(p.toString()); 
     }
 }
