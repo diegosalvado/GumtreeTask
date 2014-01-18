@@ -58,5 +58,7 @@ public class AppTest
         
         assertEquals(3, Questions.number_males(list));
         
+        assertEquals("Wes Jackson", Questions.oldest(list).getName());
+        
     }
 }

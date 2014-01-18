@@ -41,12 +41,16 @@ public class Reader
     	 File f = getFile(ConfigFiles.FILE_ADDRESS);
     	
     	 List<Person> list = readFile(f);
+    	
     	 
     	 System.out.println("Number of males in list: "+Questions.number_males(list));
     	 
+    	 System.out.println("The oldest person is: "+Questions.oldest(list));
+    	 
+    	 
     	 
     	} catch (NullPointerException e) {
-			logger.error("File path: Null pointer");
+			logger.error("Null pointer exception");
 		
     	} catch (ParseException e) {
     		logger.error("Error parsing data from file");

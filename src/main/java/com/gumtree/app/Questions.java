@@ -1,5 +1,7 @@
 package com.gumtree.app;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -29,4 +31,33 @@ public class Questions {
 		return total;
 	}
 	
+
+	/*
+	 * @param List<Person>
+	 * @return Person
+	 * iterate the list of persons and return the oldest
+	 */
+	public static Person oldest(List<Person> list) {
+		
+		logger.info("Oldest person method\n");
+		
+		Collections.sort(list, comparator);  
+		
+		return list.get(0);
+		
+	}
+
+	  
+	
+	 static Comparator<Person> comparator = new Comparator<Person>() {
+		    public int compare( Person a, Person b ) {
+	
+		    	return a.getAge().compareTo(b.getAge());
+		    	
+	       }
+	  };    	
+	
 }
+
+
+
