@@ -2,13 +2,21 @@ package com.gumtree.model;
 
 import java.util.Date;
 
+import org.joda.time.DateTime;
+
 public class Person {
 
 	private String name;
 	private String gender;
-	private Date age;
+	private DateTime date;
 	
 	
+	public Person(String name, String gender, DateTime date) {
+		this.name = name;
+		this.gender = gender;
+		this.date = date;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -25,12 +33,12 @@ public class Person {
 		this.gender = gender;
 	}
 	
-	public Date getAge() {
-		return age;
+	public DateTime getAge() {
+		return date;
 	}
 	
-	public void setAge(Date age) {
-		this.age = age;
+	public void setAge(DateTime age) {
+		this.date = age;
 	}
 	
 	
