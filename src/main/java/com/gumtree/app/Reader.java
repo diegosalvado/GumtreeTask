@@ -8,7 +8,9 @@ package com.gumtree.app;
 import java.io.File;
 import java.net.URL;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import com.gumtree.config.ConfigFiles;
 
@@ -17,11 +19,13 @@ import com.gumtree.config.ConfigFiles;
 public class Reader 
 {
 
-	static final Logger logger = Logger.getLogger(Reader.class);
-	
 	public static void main( String[] args )
     {
-      
+
+
+		Logger logger = LoggerFactory.getLogger(Reader.class);
+		
+		
     	try {
     	
     	 File f = getFile(ConfigFiles.FILE_ADDRESS);
