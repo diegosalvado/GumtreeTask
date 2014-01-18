@@ -42,15 +42,16 @@ public class Reader
     	
     	 List<Person> list = readFile(f);
     	 
+    	 System.out.println("Number of males in list: "+Questions.number_males(list));
+    	 
+    	 
     	} catch (NullPointerException e) {
 			logger.error("File path: Null pointer");
 		
     	} catch (ParseException e) {
-			// TODO Auto-generated catch block
     		logger.error("Error parsing data from file");
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			logger.error("Scanner: File not found");
 		}
     }
@@ -67,7 +68,11 @@ public class Reader
     	return new File(url.getPath());
     }
 
-    
+    /*
+	 * @param File
+	 * @return List<Person>
+	 * read the file and parse the data(name,gender,age) in a list of Person objects
+	 */
     public static List<Person> readFile(File f) throws ParseException, FileNotFoundException {
     	
 
@@ -81,7 +86,7 @@ public class Reader
               
               String[] details = line.split(",");
               String name = details[0];
-              String gender = details[1];
+              String gender = details[1].replace(" ","");
               DateTime date = new DateTime(format.parse(details[2]));
                	                
               Person p = new Person(name,gender,date);

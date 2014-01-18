@@ -55,5 +55,8 @@ public class AppTest
         
         for(Person p:list)
  			  System.out.println(p.toString()); 
+        
+        assertEquals(3, Questions.number_males(list));
+        
     }
 }
