@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.joda.time.Days;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,13 +47,34 @@ public class Questions {
 		return list.get(0);
 		
 	}
-
-	  
 	
+	
+	/*
+	 * @param Person, Person
+	 * @return int
+	 * calculate the number of days between the age of 2 person
+	 */
+	public static void days_older(Person p1, Person p2) {
+
+		logger.info("Days older method\n");
+		
+		if(p1.getDate().isBefore(p2.getDate())) {
+			System.out.println(p1.getName()+" is "+Days.daysBetween(p1.getDate(), p2.getDate()).getDays()+" days older");
+		}
+		else {
+			System.out.println(p2.getName()+" is "+Days.daysBetween(p2.getDate(), p1.getDate()).getDays()+" days older");	
+		}
+		
+	}
+	  
+	/*
+	 * comparator
+	 * Compare 2 Person type objects by date
+	 */
 	 static Comparator<Person> comparator = new Comparator<Person>() {
 		    public int compare( Person a, Person b ) {
 	
-		    	return a.getAge().compareTo(b.getAge());
+		    	return a.getDate().compareTo(b.getDate());
 		    	
 	       }
 	  };    	

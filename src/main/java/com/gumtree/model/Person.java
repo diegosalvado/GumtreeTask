@@ -33,11 +33,11 @@ public class Person {
 		this.gender = gender;
 	}
 	
-	public DateTime getAge() {
+	public DateTime getDate() {
 		return date;
 	}
 	
-	public void setAge(DateTime age) {
+	public void setDate(DateTime age) {
 		this.date = age;
 	}
 	

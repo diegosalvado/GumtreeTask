@@ -43,7 +43,7 @@ public class AppTest
      * @throws ParseException 
      * @throws FileNotFoundException 
      */
-    public void testApp() throws FileNotFoundException, ParseException
+    public void testApp() throws FileNotFoundException, ParseException, NullPointerException
     {
     	  //true if file not null 
         assertNotNull(Reader.getFile(ConfigFiles.FILE_ADDRESS));
@@ -59,6 +59,12 @@ public class AppTest
         assertEquals(3, Questions.number_males(list));
         
         assertEquals("Wes Jackson", Questions.oldest(list).getName());
+        
+        Person p1 = list.get(1); //Paul
+        Person p2 = list.get(2); //Gemma
+        
+        Questions.days_older(p1, p2);       
+        
         
     }
 }

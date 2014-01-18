@@ -48,6 +48,11 @@ public class Reader
     	 System.out.println("The oldest person is: "+Questions.oldest(list));
     	 
     	 
+    	 Person Bill = getPerson(list, "Bill McKnight");
+    	 Person Paul = getPerson(list, "Paul Robinson");
+    	 
+    	 Questions.days_older(Bill, Paul);
+    	 		
     	 
     	} catch (NullPointerException e) {
 			logger.error("Null pointer exception");
@@ -61,7 +66,20 @@ public class Reader
     }
 
     
-
+	/*
+	 * @param List<Person>, String
+	 * @return Person
+	 * if there is a person in the list with the name equals to the input parameter, return Person
+	 * else return null
+	 */
+	public static Person getPerson(List<Person> list, String name) {
+		
+		for(Person p:list) {
+			if(p.getName().equals(name)) return p;
+		}
+		return null;
+	}
+	
 	/*
 	 * @param filepath
 	 * @return File
