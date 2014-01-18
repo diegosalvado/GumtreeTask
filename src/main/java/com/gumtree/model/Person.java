@@ -1,7 +1,5 @@
 package com.gumtree.model;
 
-import java.util.Date;
-
 import org.joda.time.DateTime;
 
 public class Person {

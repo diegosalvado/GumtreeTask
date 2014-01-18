@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import com.gumtree.config.ConfigFiles;
+import com.gumtree.config.Config;
 import com.gumtree.model.Person;
 
 
@@ -38,7 +38,7 @@ public class Reader
 		
     	try {
     	
-    	 File f = getFile(ConfigFiles.FILE_ADDRESS);
+    	 File f = getFile(Config.FILE_ADDRESS);
     	
     	 List<Person> list = readFile(f);
     	
@@ -48,20 +48,20 @@ public class Reader
     	 System.out.println("The oldest person is: "+Questions.oldest(list));
     	 
     	 
-    	 Person Bill = getPerson(list, "Bill McKnight");
-    	 Person Paul = getPerson(list, "Paul Robinson");
+    	 Person Bill = getPerson(list, Config.BILL);
+    	 Person Paul = getPerson(list, Config.PAUL);
     	 
     	 Questions.days_older(Bill, Paul);
     	 		
     	 
     	} catch (NullPointerException e) {
-			logger.error("Null pointer exception");
+			logger.error(Config.NULL_POINTER_EXCEPTION);
 		
     	} catch (ParseException e) {
-    		logger.error("Error parsing data from file");
+    		logger.error(Config.PARSER_EXCEPTION);
 			
 		} catch (FileNotFoundException e) {
-			logger.error("Scanner: File not found");
+			logger.error(Config.FILE_NOT_FOUND_EXCEPTION);
 		}
     }
 
@@ -100,13 +100,13 @@ public class Reader
 
   	  sc = new Scanner(f);
 			
-		  SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
+		  SimpleDateFormat format = new SimpleDateFormat(Config.DATE_FORMAT);
 		  List<Person> list_person = new ArrayList<Person>();
 		  
 		  while(sc.hasNextLine()){
               String line = sc.nextLine();
               
-              String[] details = line.split(",");
+              String[] details = line.split(Config.SEPARATOR);
               String name = details[0];
               String gender = details[1].replace(" ","");
               DateTime date = new DateTime(format.parse(details[2]));

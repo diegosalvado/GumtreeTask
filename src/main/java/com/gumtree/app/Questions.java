@@ -8,6 +8,7 @@ import org.joda.time.Days;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gumtree.config.Config;
 import com.gumtree.model.Person;
 
 public class Questions {
@@ -26,7 +27,7 @@ public class Questions {
 		int total=0;
 		
 		for(Person p:list) {
-			if(p.getGender().equals("Male")) total++;
+			if(p.getGender().equals(Config.MALE)) total++;
 		}
 		
 		return total;
@@ -51,7 +52,6 @@ public class Questions {
 	
 	/*
 	 * @param Person, Person
-	 * @return int
 	 * calculate the number of days between the age of 2 person
 	 */
 	public static void days_older(Person p1, Person p2) {

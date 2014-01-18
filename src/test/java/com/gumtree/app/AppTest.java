@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.List;
 
-import com.gumtree.config.ConfigFiles;
+import com.gumtree.config.Config;
 import com.gumtree.model.Person;
 
 
@@ -45,10 +45,10 @@ public class AppTest
      */
     public void testApp() throws FileNotFoundException, ParseException, NullPointerException
     {
-    	  //true if file not null 
-        assertNotNull(Reader.getFile(ConfigFiles.FILE_ADDRESS));
+    	
+        assertNotNull(Reader.getFile(Config.FILE_ADDRESS));
         
-        File f = Reader.getFile(ConfigFiles.FILE_ADDRESS);
+        File f = Reader.getFile(Config.FILE_ADDRESS);
         
         List<Person> list = Reader.readFile(f);
         assertNotNull(list);
