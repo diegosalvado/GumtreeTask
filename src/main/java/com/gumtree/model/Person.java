@@ -1,3 +1,8 @@
+/**
+ * @author Diego Salvado
+ * 
+ */
+
 package com.gumtree.model;
 
 import org.joda.time.DateTime;

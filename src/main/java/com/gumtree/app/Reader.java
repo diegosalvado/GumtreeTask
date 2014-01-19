@@ -1,6 +1,6 @@
 /**
  * @author Diego Salvado
- * @
+ * 
  */
 
 package com.gumtree.app;
@@ -32,8 +32,9 @@ public class Reader
 	public static void main( String[] args )
     {
 
-
 		logger = LoggerFactory.getLogger(Reader.class);
+		
+		System.out.println("Gumtree coding challenge\n");
 		
 		
     	try {
@@ -42,7 +43,6 @@ public class Reader
     	
     	 List<Person> list = readFile(f);
     	
-    	 
     	 System.out.println("Number of males in list: "+Questions.number_males(list));
     	 
     	 System.out.println("The oldest person is: "+Questions.oldest(list));

@@ -1,3 +1,8 @@
+/**
+ * @author Diego Salvado
+ * 
+ */
+
 package com.gumtree.config;
 
 public class Config {

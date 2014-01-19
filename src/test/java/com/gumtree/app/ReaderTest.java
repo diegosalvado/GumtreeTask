@@ -1,3 +1,8 @@
+/**
+ * @author Diego Salvado
+ * 
+ */
+
 package com.gumtree.app;
 
 
@@ -17,7 +22,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class ReaderTest 
     extends TestCase
 {
     /**
@@ -25,7 +30,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public ReaderTest( String testName )
     {
         super( testName );
     }
@@ -35,7 +40,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( ReaderTest.class );
     }
 
     /**
@@ -46,16 +51,15 @@ public class AppTest
     public void testApp() throws FileNotFoundException, ParseException, NullPointerException
     {
     	
+    	System.out.println("-- Test Methods --");
+    	
         assertNotNull(Reader.getFile(Config.FILE_ADDRESS));
         
         File f = Reader.getFile(Config.FILE_ADDRESS);
         
         List<Person> list = Reader.readFile(f);
         assertNotNull(list);
-        
-        for(Person p:list)
- 			  System.out.println(p.toString()); 
-        
+                
         assertEquals(3, Questions.number_males(list));
         
         assertEquals("Wes Jackson", Questions.oldest(list).getName());
@@ -65,6 +69,37 @@ public class AppTest
         
         Questions.days_older(p1, p2);       
         
-        
+        System.out.println("-- Test Methods Completed --\n");        
     }
+    
+    public void testError() throws FileNotFoundException, ParseException
+    {
+    	
+    	 System.out.println("-- Test Errors --");
+    	
+    	 String wrong_file_path = "/com/gumtree/wrongfile/AddressBook";
+    	 
+    	 try {
+    		 assertNull(Reader.getFile(wrong_file_path));
+    	
+    	 } catch (NullPointerException e) {
+		     System.out.println("Wrong file path");
+		 }
+    	
+    	 List<Person> list = null;
+    	
+    	 try {
+    	 
+    		 assertNull(Questions.number_males(list));
+    	 
+    	 } catch (NullPointerException e) {
+			
+    		 System.out.println("Null list");
+		} 
+    	 
+    	 
+    	 System.out.println("-- Test Errors Completed --\n");   
+    	
+    }
+    
 }

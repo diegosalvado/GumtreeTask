@@ -1,5 +1,11 @@
+/**
+ * @author Diego Salvado
+ * 
+ */
+
 package com.gumtree.app;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -22,7 +28,7 @@ public class Questions {
 	 */
 	public static int number_males(List<Person> list) {
 		
-		logger.info("Number of males method\n");
+		logger.debug("Number of males method\n");
 		
 		int total=0;
 		
@@ -41,11 +47,14 @@ public class Questions {
 	 */
 	public static Person oldest(List<Person> list) {
 		
-		logger.info("Oldest person method\n");
+		logger.debug("Oldest person method\n");
 		
-		Collections.sort(list, comparator);  
+		List<Person> order_list = new ArrayList<Person>(list);
 		
-		return list.get(0);
+		Collections.sort(order_list, comparator);  
+		
+		//first element is the older
+		return order_list.get(0);
 		
 	}
 	
@@ -56,11 +65,13 @@ public class Questions {
 	 */
 	public static void days_older(Person p1, Person p2) {
 
-		logger.info("Days older method\n");
+		logger.debug("Days older method\n");
 		
+		//if p1 is older
 		if(p1.getDate().isBefore(p2.getDate())) {
 			System.out.println(p1.getName()+" is "+Days.daysBetween(p1.getDate(), p2.getDate()).getDays()+" days older than "+p2.getName());
 		}
+		//if p2 is older
 		else {
 			System.out.println(p2.getName()+" is "+Days.daysBetween(p2.getDate(), p1.getDate()).getDays()+" days older than "+p1.getName());	
 		}
